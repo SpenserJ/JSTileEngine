@@ -1,10 +1,10 @@
 #wrapper {
-  width: 640px;
-  height: 480px;
+  width: 256px;
+  height: 320px;
   position: absolute;
-  //top: 50%;
-  //left: 50%;
-  //margin: -256px 0px 0px -336px;
+  top: 50%;
+  left: 50%;
+  margin: -160px 0px 0px -128px;
   text-align: center;
   background: #faa;
   -webkit-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
