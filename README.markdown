@@ -7,4 +7,3 @@ This is eventually going to be a 2D tile game engine with multi-tileset support
 * Render X tiles beyond the viewport
 * Optimize z-index rendering
 * Retain temporary sprites/tiles (other players) when you walk over them
-* Render sprites AFTER tileset has loaded

@@ -10,37 +10,37 @@ $(function() {
   map = new Map();
   tileset.callback = function() {
     map.render(0, 0, 8, 14, this, canvas);
+    
+    sprite = new Sprite('sprites/character/amy.png', [32, 32], map, tileset);
+    sprite.callback = function() {
+      sprite.drawSpriteToCanvas(1,4,canvas);
+    }
+    sprite.load();
+    
+    sprite2 = new Sprite('sprites/character/misty.png', [32, 32], map, tileset);
+    sprite2.callback = function() {
+      sprite2.drawSpriteToCanvas(6,13,canvas,1,0);
+    }
+    sprite2.load();
+    
+    sprite3 = new Sprite('sprites/character/gramps.png', [32, 32], map, tileset);
+    sprite3.callback = function() {
+      sprite3.drawSpriteToCanvas(4,11,canvas,3,2);
+    }
+    sprite3.load();
+    
+    player = new Player({ map: map, canvas: canvas, tileset: tileset });
+    
+    $('body').keydown(function(e) {
+      switch (e.keyCode) {
+        case 37: player.move('left');  break;
+        case 38: player.move('up');    break;
+        case 39: player.move('right'); break;
+        case 40: player.move('down');  break;
+      }
+    });
   }
   tileset.load();
-  
-  sprite = new Sprite('sprites/character/amy.png', [32, 32], map, tileset);
-  sprite.callback = function() {
-    sprite.drawSpriteToCanvas(1,4,canvas);
-  }
-  sprite.load();
-  
-  sprite2 = new Sprite('sprites/character/misty.png', [32, 32], map, tileset);
-  sprite2.callback = function() {
-    sprite2.drawSpriteToCanvas(6,13,canvas,1,0);
-  }
-  sprite2.load();
-  
-  sprite3 = new Sprite('sprites/character/gramps.png', [32, 32], map, tileset);
-  sprite3.callback = function() {
-    sprite3.drawSpriteToCanvas(4,11,canvas,3,2);
-  }
-  sprite3.load();
-  
-  player = new Player({ map: map, canvas: canvas, tileset: tileset });
-  
-  $('body').keydown(function(e) {
-    switch (e.keyCode) {
-      case 37: player.move('left');  break;
-      case 38: player.move('up');    break;
-      case 39: player.move('right'); break;
-      case 40: player.move('down');  break;
-    }
-  });
   
   $fps.appendTo('body');
   $fpsAvg.appendTo('body');
