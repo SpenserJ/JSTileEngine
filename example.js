@@ -15,19 +15,19 @@ $(function() {
   
   sprite = new Sprite('sprites/character/amy.png', [32, 32]);
   sprite.callback = function() {
-    sprite.drawSpriteToCanvas(0,2,canvas);
+    sprite.drawSpriteToCanvas(1,4,canvas);
   }
   sprite.load();
   
   sprite2 = new Sprite('sprites/character/misty.png', [32, 32]);
   sprite2.callback = function() {
-    sprite2.drawSpriteToCanvas(6,9,canvas,1,1);
+    sprite2.drawSpriteToCanvas(6,13,canvas,1,0);
   }
   sprite2.load();
   
   sprite3 = new Sprite('sprites/character/gramps.png', [32, 32]);
   sprite3.callback = function() {
-    sprite3.drawSpriteToCanvas(7,1,canvas,3,2);
+    sprite3.drawSpriteToCanvas(4,11,canvas,3,2);
   }
   sprite3.load();
   
