@@ -2,7 +2,7 @@ var fps = 0, fpsAvg = 0;
 var $fps = $('<div style="position: absolute; bottom: 16px; left: 0px;"></div>');
 var $fpsAvg = $('<div style="position: absolute; bottom: 0px; left: 0px;"></div>');
 // Replace this with a non-jquery onready
-var canvas, tileset, map, player;
+var canvas, tileset, map, player, npc = {}, playerMovement = ['left', 'up', 'right', 'down'];
 $(function() {
   canvas = document.getElementById('canvas').getContext('2d');
   
@@ -11,17 +11,15 @@ $(function() {
   tileset.callback = function() {
     map.render(0, 0, 8, 14, this, canvas);
     
-    sprite = new Sprite('sprites/character/amy.png', [32, 32], map, tileset);
-    sprite.callback = function() {
-      sprite.drawSpriteToCanvas(1,4,canvas);
-    }
-    sprite.load();
+    npc.amy = new Player({ spritePath: 'sprites/character/amy.png', coords: [1, 7], map: map, canvas: canvas, tileset: tileset });
+    setInterval(function() {
+      npc.amy.move(playerMovement[Math.floor(Math.random() * 4)]);
+    }, 1000);
     
-    sprite2 = new Sprite('sprites/character/misty.png', [32, 32], map, tileset);
-    sprite2.callback = function() {
-      sprite2.drawSpriteToCanvas(6,13,canvas,1,0);
-    }
-    sprite2.load();
+    npc.misty = new Player({ spritePath: 'sprites/character/misty.png', coords: [6, 13], spriteState: 1, map: map, canvas: canvas, tileset: tileset });
+    setInterval(function() {
+      npc.misty.move(playerMovement[Math.floor(Math.random() * 4)]);
+    }, 1000);
     
     sprite3 = new Sprite('sprites/character/gramps.png', [32, 32], map, tileset);
     sprite3.callback = function() {
