@@ -9,7 +9,7 @@ $(function() {
   tileset = new Tileset({ path: 'tiles/map.png', tileSpacer: false, tileSize: [32, 32] });
   map = new Map();
   tileset.callback = function() {
-    map.render(0, 0, 7, 9, this, canvas);
+    map.render(0, 0, 8, 14, this, canvas);
   }
   tileset.load();
   
