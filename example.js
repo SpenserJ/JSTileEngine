@@ -2,7 +2,7 @@ var fps = 0, fpsAvg = 0;
 var $fps = $('<div style="position: absolute; bottom: 16px; left: 0px;"></div>');
 var $fpsAvg = $('<div style="position: absolute; bottom: 0px; left: 0px;"></div>');
 // Replace this with a non-jquery onready
-var canvas, tileset, map;
+var canvas, tileset, map, player;
 $(function() {
   canvas = document.getElementById('canvas').getContext('2d');
   
@@ -30,6 +30,17 @@ $(function() {
     sprite3.drawSpriteToCanvas(7,1,canvas,3,2);
   }
   sprite3.load();
+  
+  player = new Player({ map: map, canvas: canvas, tileset: tileset });
+  
+  $('body').keydown(function(e) {
+    switch (e.keyCode) {
+      case 37: player.move('left');  break;
+      case 38: player.move('up');    break;
+      case 39: player.move('right'); break;
+      case 40: player.move('down');  break;
+    }
+  });
   
   $fps.appendTo('body');
   $fpsAvg.appendTo('body');
