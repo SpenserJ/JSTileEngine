@@ -13,19 +13,19 @@ $(function() {
   }
   tileset.load();
   
-  sprite = new Sprite('sprites/character/amy.png', [32, 32]);
+  sprite = new Sprite('sprites/character/amy.png', [32, 32], map, tileset);
   sprite.callback = function() {
     sprite.drawSpriteToCanvas(1,4,canvas);
   }
   sprite.load();
   
-  sprite2 = new Sprite('sprites/character/misty.png', [32, 32]);
+  sprite2 = new Sprite('sprites/character/misty.png', [32, 32], map, tileset);
   sprite2.callback = function() {
     sprite2.drawSpriteToCanvas(6,13,canvas,1,0);
   }
   sprite2.load();
   
-  sprite3 = new Sprite('sprites/character/gramps.png', [32, 32]);
+  sprite3 = new Sprite('sprites/character/gramps.png', [32, 32], map, tileset);
   sprite3.callback = function() {
     sprite3.drawSpriteToCanvas(4,11,canvas,3,2);
   }
