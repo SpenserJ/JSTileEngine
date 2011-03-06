@@ -22,7 +22,7 @@ $(function() {
     
     players['player-1'] = new Player({ coords: [4,4], libraries: libraries, playerID: 'player-1', spritePath: 'sprites/character/hiro.png' });
     
-    $('body').keydown(function(e) {
+    $('html').keydown(function(e) {
       switch (e.keyCode) {
         case 37: players['player-1'].move('left');  break;
         case 38: players['player-1'].move('up');    break;
