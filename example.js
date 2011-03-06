@@ -1,6 +1,4 @@
-var fps = 0, fpsAvg = 0;
-var $fps = $('<div style="position: absolute; bottom: 16px; left: 0px;"></div>');
-var $fpsAvg = $('<div style="position: absolute; bottom: 0px; left: 0px;"></div>');
+var fps = 0, fpsAvg = 0, $fps, $fpsAvg;
 // Replace this with a non-jquery onready
 var libraries = {}, canvas, tileset, map, player, players = {}, currentPlayer = 1, playersOnTile = [], playerMovement = ['left', 'up', 'right', 'down'];
 $(function() {
@@ -35,8 +33,8 @@ $(function() {
   }
   libraries.tileset.load();
   
-  $fps.appendTo('body');
-  $fpsAvg.appendTo('body');
+  $fps = $('#fps');
+  $fpsAvg = $('#fps_avg');
 });
 setInterval(function() {
   $fps.html('FPS: ' + fps);

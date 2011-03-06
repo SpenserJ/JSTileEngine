@@ -9,3 +9,20 @@
   background: #faa;
   -webkit-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
 }
+
+#fps_wrapper, #credits {
+  position: absolute;
+  bottom: 0px;
+  padding: 8px;
+  background: #ddd;
+  -webkit-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
+}
+
+#fps_wrapper {
+  display: none;
+  left: 0px;
+}
+
+#credits {
+  right: 0px;
+}
