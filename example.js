@@ -4,12 +4,13 @@ var $fpsAvg = $('<div style="position: absolute; bottom: 0px; left: 0px;"></div>
 // Replace this with a non-jquery onready
 var libraries = {}, canvas, tileset, map, player, players = {}, currentPlayer = 1, playersOnTile = [], playerMovement = ['left', 'up', 'right', 'down'];
 $(function() {
-  libraries.canvas = document.getElementById('canvas').getContext('2d');
+  libraries.canvas = new Canvas({ libraries: libraries, canvas: document.getElementById('canvas').getContext('2d') });
   
   libraries.tileset = new Tileset({ path: 'tiles/map.png', tileSpacer: false, tileSize: [32, 32], libraries: libraries });
   libraries.map = new Map({ libraries: libraries });
   libraries.tileset.callback = function() {
-    libraries.map.render(0, 0, 8, 14, this, libraries.canvas);
+    libraries.canvas.renderBase(0, 0, 8, 14);
+    libraries.canvas.renderOverlay(0, 0, 8, 14);
     
     players['npc-amy'] = new Player({ spritePath: 'sprites/character/amy.png', coords: [1, 2], libraries: libraries, playerID: 'npc-amy' });
     setInterval(function() {
