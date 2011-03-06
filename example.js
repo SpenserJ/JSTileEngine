@@ -20,7 +20,7 @@ $(function() {
       players['npc-misty'].move(playerMovement[Math.floor(Math.random() * 4)]);
     }, 1000);
     
-    players['player-1'] = new Player({ coords: [4,4], libraries: libraries, playerID: 'player-1' });
+    players['player-1'] = new Player({ coords: [4,4], libraries: libraries, playerID: 'player-1', spritePath: 'sprites/character/hiro.png' });
     
     $('body').keydown(function(e) {
       switch (e.keyCode) {
